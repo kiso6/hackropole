@@ -1,11 +1,11 @@
-### WUP : Cap ou Pcap ?
+## WUP : Cap ou Pcap ?
 
-#### Paquet TCP 
+### Paquet TCP 
 Pour rappel, voici (grossièrement) le format d'un paquet TCP
 
 **IP [@IPsrc,@IPdst]** | **TCP [port_src,port_dst]** | **PLD[......]**
 
-#### Résolution
+### Résolution
 
 On se retrouve face a un fichier pcap d'une session TCP. Par conséquent, on sait donc que tous les paquets SYN, SYN ACK, ACK, FIN ACK et FIN ne seront pas utiles à la résolution du challenge.
 
