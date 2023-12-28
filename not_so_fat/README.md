@@ -1,9 +1,9 @@
-### WUP : Not so fat !
+## WUP : Not so fat !
 **Tags:** _SleuthKit / images disque / forensic_
 
 Dans ce challenge, on récupère une image disque au format .dd : **not-so-fat.dd**. On sait qu'elle contient un flag qu'on doit récupérer.
 
-#### Tâtonnement initial...
+### Tâtonnement initial...
 Dans un premier temps, ça pourrait être intéréssant de lister le contenu du disque. Pour cela, ma première idée a été de faire:
 ```bash
 strings not-so-fat.dd
@@ -33,7 +33,7 @@ ls -la
 ```
 Bon, il va falloir trouver autre chose qui marche mieux.
 
-#### Quelque chose d'un peu plus sérieux 
+### Quelque chose d'un peu plus sérieux 
 En cherchant sur internet comment lister les fichiers d'une image de disque, je suis tombé sur la [page Wikipédia du SleuthKit](https://fr.wikipedia.org/wiki/The_Sleuth_Kit) qui mentionne un outil :  
 > fls : liste les noms de fichiers alloués et non alloués dans un système de fichiers
 >
@@ -49,7 +49,7 @@ V/V 523206:	$OrphanFiles
 ```
 On retrouve un "flag.zip" qu'on avait deviné avec strings tout à l'heure.  
 
-#### Extraction !
+### Extraction !
 
 Maintenant, on va essayer d'extraire tout ça du fichier. Toujours dans le SleuthKit, on dispose de l'utilitaire **icat** qui, selon le man, fait :
 >icat - Output the contents of a file based on its inode number.
