@@ -1,5 +1,6 @@
 # Hackropole
 [Lien vers Hackropole](https://hackropole.fr/fr/)
+*Je ne donne pas la valeur des flags dans les write-up*
 
 Repo. qui contient des Write-up pour les challenges Hackropole.  
 * [**Cap ou pcap ?**](https://github.com/kiso6/hackropole/tree/main/cap_ou_pcap) (_Réseau, analyse de pcap_)  
