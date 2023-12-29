@@ -17,7 +17,7 @@ Alors :
 * 2 = ABGED =  101110110
 * 2.= ABGED =  101110111
 
-_Attention: subtilité, le dernier 2 est suivi d'un 0 donc le bit DP a 1 ... J'ai pas vu ça au début..._
+_Attention: subtilité, le dernier 2 est suivi d'un "." donc le bit DP a 1 ... J'ai pas vu ça au début..._
 
 Donc le flag est :
 FCSC{**La suite de bits qui va bien**}
