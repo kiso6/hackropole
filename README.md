@@ -11,4 +11,5 @@ Repo. qui contient des Write-up pour les challenges Hackropole.
 * [**Rituels de forensic**](https://github.com/kiso6/hackropole/tree/main/rituels_forensic) (_Utilisation de l'outil strings_)  
   * [Rituel du boutisme](https://github.com/kiso6/hackropole/tree/main/rituels_forensic#rituel-du-boutisme)
   * [Rituel en chaine](https://github.com/kiso6/hackropole/tree/main/rituels_forensic#rituel-en-cha%C3%AEne)
+* [**StegCryptoDIY - PNG**](https://github.com/kiso6/hackropole/tree/main/steg_crypto_diy_png) (_Utilisation de strings, stégano._)
 
