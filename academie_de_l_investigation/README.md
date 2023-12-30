@@ -100,3 +100,25 @@ Petite explication du pipe :
 * **awk '{print $4}'** on ne garde que la 4ème colonne (IP dest)
 * **sort -u** on trie le résultat de awk par unicité
 * **wc -l** on compte le nombre de lignes restantes
+
+### Partie 4 : Porte dérobée
+
+A priori, on cherche un listener netcat sur la machine que l'on est en train d'analyser. Un coup de netstat avec volatility, et on est capable de retrouver ça dans le dump:
+
+```bash
+$ python2 vol.py --plugins=../../hackropole/ --profile=Linuxprofile_challx64 -f ../../hackropole/dmp.mem linux_netstat | grep nc
+Volatility Foundation Volatility Framework 2.6.1
+TCP      fd:6663:7363:1000:c10b:6374:25f:dc37:36280 fd:6663:7363:1000:55cf:b9c6:f41d:cc24:58014 ESTABLISHED                  ncat/1515
+
+```
+Donc je dirai que le port est **58014** et que l'adresse distante est **fd:6663:7363:1000:55cf:b9c6:f41d:cc24**.
+
+Ensuite, on peut lister les tâches avec leur date de lancement en utilisant pslist :
+
+```bash
+$ python2 vol.py --plugins=../../hackropole/ --profile=Linuxprofile_challx64 -f ../../hackropole/dmp.mem linux_pslist | grep nc
+Volatility Foundation Volatility Framework 2.6.1
+0xffff9d72c014be00 ncat                 1515            1513            1001            1001   0x000000003e3d0000 2020-03-26 23:24:20 UTC+0000 # C'est celui là
+0xffff9d7284928000 ncat                 119711          119707          1001            1001   0x0000000007a54000 2020-03-26 23:36:52 UTC+0000
+```
+On matche assez vite avec le PID qu'on à trouvé avec netstat et on voit que la date à laquelle à été lancé le processus est **2020-03-26 23:24:20**.
