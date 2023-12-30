@@ -46,3 +46,57 @@ On peut donc récupérer notre premier flag.
 ### Partie 2 : Administration
 
 ### Partie 3 : Premiers Artéfacts
+
+Dans cette partie, je décide d'utiliser volatility pour pouvoir analyser le dump mémoire. La config de volatility m'a pris un sacré paquet de temps, c'est assez galère de trouver ce qui marche bien.  
+
+Pour utiliser volatility, il faut construire un profil adapté au kernel sur lequel la machine tournait. **Ici on est sur du Linux 5.4.0.4-amd64**.  
+
+J'ai donc cherché comment le faire moi même, avant de vite voir que ça allait me prendre un temps fou. Donc j'ai cherché sur Google "volatility profile for debian 5.4.0-4-amd64" et je suis tombé sur ce repo [Github (auth: thibthib)](https://github.com/thithib/volatility-profiles/blob/master/Linux/DebianSid_Linux-5.4.0-4-amd64.zip) sur lequel un profil était dispo pour ma version du kernel pour un Debian ! Je l'ai donc téléchargé et ensuite utilisé dans mes commandes.  
+
+J'ai déja utilisé une fois volatility, mais pour me rappeller des plugins, j'ai d'abord fait un :
+
+```bash
+$ python2 vol.py --plugins=../../hackropole/ --info | grep ps #liste les plugins dispos et cherche ps
+#...
+linux_psscan               - Scan physical memory for processes #semble pas trop mal ça !
+```
+On recherche alors le nom du processus associé au PID 1254:
+
+```bash
+# Ici j'ai utilisé la vieille version de volatility que j'avais déjà eu l'occasion d'utiliser
+$ python2 vol.py --plugins=../../hackropole/ --profile=Linuxprofile_challx64 -f ../../hackropole/dmp.mem linux_psscan | grep 1254
+
+Volatility Foundation Volatility Framework 2.6.1
+0x000000003fdccd80 pool-xfconfd         1254            -               -1              -1     ------------------ -
+```
+Et voila ! Le processus semble donc être le **pool-xconfd** !  
+
+On continue avec volatility désormais. On cherche à connaître l'historique des commandes qui à été utilisé, donc l'historique du bash. En cherchant sur internet "bash history with volatility" on tombe sur **linux_bash** qui semble être plutôt intéréssant car: 
+>linux_bash - Recover bash history from bash process memory
+>
+On lance donc :
+
+```bash
+python2 vol.py --plugins=../../hackropole/ --profile=Linuxprofile_challx64 -f ../../hackropole/dmp.mem linux_bash
+# On descends un peu et...
+1523 bash                 2020-03-26 23:26:06 UTC+0000   rkhunter -c
+1523 bash                 2020-03-26 23:29:19 UTC+0000   nmap -sS -sV 10.42.42.0/24
+1523 bash                 2020-03-26 23:31:31 UTC+0000   ?+??U
+1523 bash                 2020-03-26 23:31:31 UTC+0000   ip -c addr
+```
+A 23:31:31, la commande exécutée est **ip -c addr**.  
+
+Enfin, on veut le nombre de connexions TCP et UDP ouvertes avec une Peer Adress unique. On utilise encore volatility et un pipe qui va bien :
+
+```bash
+python2 vol.py --plugins=../../hackropole/ --profile=Linuxprofile_challx64 -f ../../hackropole/dmp.mem linux_netstat | grep 'ESTABLISHED' | awk '{print $4}' | sort -u |wc -l
+Volatility Foundation Volatility Framework 2.6.1
+13
+```
+
+Petite explication du pipe :  
+* **linux_netstat** on lance le plugin d'analyse des connections réseau de volatility
+* **grep 'ESTABLISHED'** on ne garde que les connections établies
+* **awk '{print $4}'** on ne garde que la 4ème colonne (IP dest)
+* **sort -u** on trie le résultat de awk par unicité
+* **wc -l** on compte le nombre de lignes restantes
