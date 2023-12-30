@@ -16,3 +16,4 @@ Repo. qui contient des Write-up pour les challenges Hackropole.
 * [**Académie de l'investigation**](https://github.com/kiso6/hackropole/tree/main/academie_de_l_investigation) (**Encore en cours 2/?**)
    * [C'est la rentrée](https://github.com/kiso6/hackropole/tree/main/academie_de_l_investigation#partie-1--cest-la-rentr%C3%A9e)
    * [Premiers artéfacts](https://github.com/kiso6/hackropole/tree/main/academie_de_l_investigation#partie-3--premiers-art%C3%A9facts)
+   * [Porte dérobée](https://github.com/kiso6/hackropole/tree/main/academie_de_l_investigation#partie-4--porte-d%C3%A9rob%C3%A9e)
