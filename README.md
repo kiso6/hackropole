@@ -13,5 +13,6 @@ Repo. qui contient des Write-up pour les challenges Hackropole.
   * [Rituel en chaine](https://github.com/kiso6/hackropole/tree/main/rituels_forensic#rituel-en-cha%C3%AEne)
 * [**StegCryptoDIY - PNG**](https://github.com/kiso6/hackropole/tree/main/steg_crypto_diy_png) (_Utilisation de strings, stégano._)
 * [**103 SPX**](https://github.com/kiso6/hackropole/tree/main/103_spx) (_Bruteforce, Strings, mémoire_)
-* [**Académie de l'investigation**](https://github.com/kiso6/hackropole/tree/main/academie_de_l_investigation) (**Encore en cours 1/?**)
+* [**Académie de l'investigation**](https://github.com/kiso6/hackropole/tree/main/academie_de_l_investigation) (**Encore en cours 2/?**)
    * [C'est la rentrée](https://github.com/kiso6/hackropole/tree/main/academie_de_l_investigation#partie-1--cest-la-rentr%C3%A9e)
+   * [Premiers artéfacts](https://github.com/kiso6/hackropole/tree/main/academie_de_l_investigation#partie-3--premiers-art%C3%A9facts)
