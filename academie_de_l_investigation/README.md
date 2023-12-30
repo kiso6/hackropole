@@ -111,7 +111,7 @@ Volatility Foundation Volatility Framework 2.6.1
 TCP      fd:6663:7363:1000:c10b:6374:25f:dc37:36280 fd:6663:7363:1000:55cf:b9c6:f41d:cc24:58014 ESTABLISHED                  ncat/1515
 
 ```
-Donc je dirai que le port est **58014** et que l'adresse distante est **fd:6663:7363:1000:55cf:b9c6:f41d:cc24**.
+Donc je dirai que le port d'écoute est **36280** et que l'adresse distante est **fd:6663:7363:1000:55cf:b9c6:f41d:cc24**.
 
 Ensuite, on peut lister les tâches avec leur date de lancement en utilisant pslist :
 
