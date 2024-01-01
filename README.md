@@ -19,5 +19,8 @@ Repo. qui contient des Write-up pour les challenges Hackropole.
    * [Porte dérobée](https://github.com/kiso6/hackropole/tree/main/academie_de_l_investigation#partie-4--porte-d%C3%A9rob%C3%A9e)
 * [**Ransomémoire**](https://github.com/kiso6/hackropole/tree/main/Ransomemoire) (_**Encore en cours 1/4**_)
    * [Pour commencer](https://github.com/kiso6/hackropole/tree/main/Ransomemoire#partie-0--pour-commencer) 
+* [**Find me**](https://github.com/kiso6/hackropole/tree/main/FindMe) (_cryptsetup,sleuthkit_)
+* [**Cryptolocker v1**](https://github.com/kiso6/hackropole/tree/main/Cryptolockerv1) (_volatility, windows,xor_)
+  
  
   
