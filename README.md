@@ -21,6 +21,9 @@ Repo. qui contient des Write-up pour les challenges Hackropole.
    * [Pour commencer](https://github.com/kiso6/hackropole/tree/main/Ransomemoire#partie-0--pour-commencer) 
 * [**Find me**](https://github.com/kiso6/hackropole/tree/main/FindMe) (_cryptsetup,sleuthkit_)
 * [**Cryptolocker v1**](https://github.com/kiso6/hackropole/tree/main/Cryptolockerv1) (_volatility, windows,xor_)
+* [**Gazette de Windows**](https://github.com/kiso6/hackropole/tree/main/Gazette2Windows)(_windows,evtx,powershell_)
+* [**Histoire sans fin**](https://github.com/kiso6/hackropole/tree/main/histoire_sans_fin)(_**Encore en cours 1/2**_)  
+  * [Partie 1](https://github.com/kiso6/hackropole/tree/main/histoire_sans_fin#partie-1)
   
  
   
